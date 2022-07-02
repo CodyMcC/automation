@@ -12,8 +12,6 @@ import cec
 
 class TV(Accessory):
 
-
-
     NAME = 'Dashboard'
     SOURCES = {
         'dashboard': 3,
