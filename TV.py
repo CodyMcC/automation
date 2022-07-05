@@ -12,7 +12,6 @@ import cec
 
 class TV(Accessory):
 
-    NAME = 'Dashboard'
     SOURCES = {
         'dashboard': 3,
         'HDMI 2': 3,
@@ -34,11 +33,11 @@ class TV(Accessory):
 
         tv_service = self.add_preload_service(
             'Television', ['Name',
-                           'ConfiguredName',
                            'Active',
                            'ActiveIdentifier',
                            'RemoteKey',
-                           'SleepDiscoveryMode'],
+                           'SleepDiscoveryMode',
+                           ],
         )
         self._active = tv_service.configure_char(
             'Active', value=self._get_state(),
@@ -53,13 +52,8 @@ class TV(Accessory):
         tv_service.configure_char(
             'RemoteKey', setter_callback=self._on_remote_key,
         )
-        tv_service.configure_char('Name', value=self.NAME)
-        # TODO: implement persistence for ConfiguredName
-        tv_service.configure_char('ConfiguredName', value=self.NAME)
+
         tv_service.configure_char('SleepDiscoveryMode', value=1)
-
-        tv_service.configure_char('RemoteKey', setter_callback=self.remote)
-
 
         for idx, (source_name, source_type) in enumerate(self.SOURCES.items()):
             input_source = self.add_preload_service('InputSource', ['Name', 'Identifier'])
