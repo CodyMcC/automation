@@ -4,6 +4,7 @@ https://github.com/ikalchev/HAP-python
 sudo apt-get install libavahi-compat-libdnssd-dev
 export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 pip3 install HAP-python[QRCode]
+pip3 install cec
 """
 
 
