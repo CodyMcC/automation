@@ -2,6 +2,7 @@
 Uses HAP-python to turn a raspberry pi into a homekit TV that controls an actual TV via cec commands.
 https://github.com/ikalchev/HAP-python
 sudo apt-get install libavahi-compat-libdnssd-dev
+export CRYPTOGRAPHY_DONT_BUILD_RUST=1
 pip3 install HAP-python[QRCode]
 """
 
